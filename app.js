@@ -26,19 +26,9 @@ app.use(formidableMiddleware());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.get('/form-with-post', function (req, res) {
+app.get('/registration', function (req, res) {
    return res.sendFile(path.join(__dirname + '/public/index.html'));
 });
-// app.post("/upload", (req, res) => {
-//     req.fields;
-// let login = req.body.name;
-// let password = req.body.password;
-// console.log(req.params.id)
-// res.end();
-// });
-// app.post('/form-with-post', function (req, res) {
-//     return res.render('form-with-post', { name: req.body.name });
-// });
 
 
 
