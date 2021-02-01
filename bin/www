@@ -3,6 +3,11 @@
 /**
  * Module dependencies.
  */
+require("dotenv").config();
+const mongoose = require('mongoose')
+const MongoDbURL = process.env.DB_URL;
+
+
 
 let app = require('../app');
 let debug = require('debug')('usersservice:server');
@@ -88,3 +93,13 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+mongoose.connect(MongoDbURL, {
+  useNewUrlParser:true, 
+  useUnifiedTopology:true
+}).then(res => {
+  console.log("Connected") 
+}).catch(err => {
+  console.error(err.message)
+}) 
