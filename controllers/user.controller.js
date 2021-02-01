@@ -9,9 +9,10 @@ class UserController {
 
     static async create(req, res){ 
         console.log(req.query,"2");
-        if(req.body.pass1===req.body.pass2 && req.body.firstname && req.body.lastname && req.body.email){
-            const info = await User.create(req.body);
-            return info;//res.json(info)?
+        if(req.query.pass1===req.query.pass2 && req.query.firstname && req.query.lastname && req.query.email){
+            const info = await User.create(req.query);
+            console.log(req.query)
+            res.json(info)
         }
     }
     static async getOne(req, res){
